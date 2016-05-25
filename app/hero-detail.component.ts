@@ -4,8 +4,6 @@ import { Hero } from './hero';
 
 @Component({
   selector: 'my-hero-detail',
-})
-export class HeroDetailComponent {
   template: `
     <div *ngIf="hero">
       <h2>{{hero.name}} details!</h2>
@@ -15,7 +13,9 @@ export class HeroDetailComponent {
         <input [(ngModel)]="hero.name" placeholder="name"/>
       </div>
     </div>
-  `,
+  `
+})
+export class HeroDetailComponent {
+  @Input()
   hero: Hero;
-
 }
