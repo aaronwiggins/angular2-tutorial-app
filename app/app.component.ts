@@ -10,7 +10,7 @@ export class Hero {
     template:`
     <h1>{{title}}</h1>
     <ul class="heroes">
-      <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
+      <li *ngFor="let hero of heroes"
           [class.selected]="hero === selectedHero"
           (click)="onSelect(hero)">
 
