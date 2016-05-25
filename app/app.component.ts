@@ -22,7 +22,7 @@ export class Hero {
       <div><label>id: </label>{{selectedHero.id}}</div>
       <div>
         <label>name: </label>
-        <input [(ngModel)]="hero.name" placeholder="name">
+        <input [(ngModel)]="selectedHero.name" placeholder="name">
       </div>
     </div>
     `,
@@ -78,7 +78,7 @@ export class Hero {
 })
 export class AppComponent {
   title = 'Tour of Heroes';
-  public heroes = HEROES;
+  heroes = HEROES;
   selectedHero: Hero;
   onSelect(hero: Hero) { this.selectedHero = hero; }
 }
