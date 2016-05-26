@@ -10,8 +10,10 @@ import { DashboardComponent } from './dashboard.component';
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <a [routerLink]="['Dashboard']">Dashboard</a>
-    <a [routerLink]="['Heroes']">Heroes</a>
+    <nav>
+      <a [routerLink]="['Dashboard']">Dashboard</a>
+      <a [routerLink]="['Heroes']">Heroes</a>
+    </nav>
     <router-outlet></router-outlet>
   `,
   styleUrls: ['app/app.component.css'],
@@ -42,5 +44,5 @@ import { DashboardComponent } from './dashboard.component';
 ])
 
 export class AppComponent {
-  title: 'Tour Of Heroes';
+  title = 'Tour of Heroes';
 }
