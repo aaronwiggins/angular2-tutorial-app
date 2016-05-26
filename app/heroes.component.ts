@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroService } from './hero.service';
+
 @Component({
   selector: 'my-heroes',
   template:`
@@ -68,6 +69,7 @@ import { HeroService } from './hero.service';
   directives: [HeroDetailComponent],
   providers: [HeroService]
 })
+
 export class HeroesComponent implements OnInit {
   title = 'Tour of Heroes';
   heroes: Hero[];

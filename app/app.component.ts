@@ -3,6 +3,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 
 import { HeroService } from './hero.service';
 import { HeroesComponent } from './heroes.component';
+import { DashboardComponent } from './dashboard.component';
 
 @Component({
   selector: 'my-app',
@@ -23,7 +24,13 @@ import { HeroesComponent } from './heroes.component';
     path: '/heroes',
     name: 'Heroes',
     component: HeroesComponent
-  }
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: DashboardComponent,
+    useAsDefault: true
+  },
 ])
 
 export class AppComponent {
