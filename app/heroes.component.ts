@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router-deprecated';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
-
-
+import { HeroDetailComponent } from './hero-detail.component';
 
 @Component({
   selector: 'my-heroes',
   templateUrl: 'app/heroes.component.html',
-  styleUrls:  ['app/heroes.component.css']
+  styleUrls:  ['app/heroes.component.css'],
+  directives: [HeroDetailComponent]
 })
 
 export class HeroesComponent implements OnInit {
@@ -26,5 +26,17 @@ export class HeroesComponent implements OnInit {
   onSelect(hero: Hero) { this.selectedHero = hero; }
   gotoDetail() {
     this.router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
+  }
+
+  addHero() {
+    this.addingHero = true;
+    this.selectedHero = null;
+  }
+
+  close(savedHero: Hero) {
+    this.addingHero = false;
+    if (savedHero) {
+      this.getHeroes();
+    }
   }
 }
