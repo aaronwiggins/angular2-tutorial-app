@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RouteParams } from '@angular/router-deprecated';
 
 import { Hero } from './hero';
@@ -13,9 +13,11 @@ import { HeroService } from './hero.service';
 })
 
 export class HeroDetailComponent implements OnInit {
-
-  hero: Hero;
-
+  @Input() hero: Hero;
+  @Output() close = new EventEmitter();
+  error: any;
+  navigated = false;
+  
   constructor(
     private heroService: HeroService,
     private routeParams: RouteParams
@@ -34,17 +36,19 @@ export class HeroDetailComponent implements OnInit {
   }
 
   save() {
-    this.heroService
-        .save(this.hero)
-        .then(hero => {
-          this.hero = hero;
-          this.goBack(hero);
-        })
-        .catch(error => this.error = error);
-  }
+     this.heroService
+         .save(this.hero)
+         .then(hero => {
+           this.hero = hero;
+           this.goBack(hero);
+         })
+         .catch(error => this.error = error);
+   }
 
-  goBack(savedHero: Hero = null) {
-    this.close.emit(savedHero);
-    if (this.navigated) { window.history.back(); }
-  }
+   goBack(savedHero: Hero = null) {
+     this.close.emit(savedHero);
+     if (this.navigated) { window.history.back(); }
+   }
+
+
 }
